@@ -26,16 +26,12 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
 
     @Override
     public double earnings() {
-        return baseSalary + (getCommissionRate() * getGrossSales());
+        // super already knows how to calc the earnings so calling the super classes method to invoke
+        return getBaseSalary() + super.earnings();
     }
 
-    @Override // overrides the super class
+    @Override
     public String toString() {
-        return String.format("%s: %s %s%n%s: %s%n%s: %.2f%n%s: %.2f%n%s: %.2f",
-                "commission employee", getFirstName(), getLastName(),
-                "ssn: ", socialNumber,
-                "gross sales: ", grossSales,
-                "com rate: ", commissionRate,
-                "base sal: ", baseSalary);
+        return String.format("%s: %s%n%s: %.2f", "base salaried", super.toString(), "base sal", getBaseSalary());
     }
 }

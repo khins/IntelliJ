@@ -6,11 +6,13 @@ public class CommissionEmployee extends Object {
     /* in inheritance, when you have protected members, whether they are instance variables or methods of a class,
     those protected members are not only accessible to the class in which they are declared,
     but also to every subclass of that particular class */
-    protected final String firstName;
-    protected final String lastName;
-    protected final String socialNumber;
-    protected double grossSales;
-    protected double commissionRate;
+
+    // returned members back to private
+    private final String firstName;
+    private final String lastName;
+    private final String socialNumber;
+    private double grossSales;
+    private double commissionRate;
 
     public CommissionEmployee(String firstName, String lastName, String socialNumber, double grossSales
             , double commissionRate) {
@@ -66,15 +68,16 @@ public class CommissionEmployee extends Object {
     }
 
     public double earnings() {
-        return  commissionRate * grossSales;
+        // even within own class its better to use the get methods for manipulating data
+        return  getCommissionRate() * getGrossSales();
     }
 
     @Override // overrides the super class
     public String toString() {
         return String.format("%s: %s %s%n%s: %s%n%s: %.2f%n%s: %.2f",
-                "commission employee", firstName, lastName,
-                "ssn: ", socialNumber,
-                "gross sales: ", grossSales,
-                "com rate: ", commissionRate);
+                "commission employee", getFirstName(), getLastName(),
+                "ssn: ", getSocialNumber(),
+                "gross sales: ", getGrossSales(),
+                "com rate: ", getCommissionRate());
     }
 }

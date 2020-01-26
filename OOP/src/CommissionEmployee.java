@@ -3,11 +3,14 @@
 * */
 
 public class CommissionEmployee extends Object {
-    private final String firstName;
-    private final String lastName;
-    private final String socialNumber;
-    private double grossSales;
-    private double commissionRate;
+    /* in inheritance, when you have protected members, whether they are instance variables or methods of a class,
+    those protected members are not only accessible to the class in which they are declared,
+    but also to every subclass of that particular class */
+    protected final String firstName;
+    protected final String lastName;
+    protected final String socialNumber;
+    protected double grossSales;
+    protected double commissionRate;
 
     public CommissionEmployee(String firstName, String lastName, String socialNumber, double grossSales
             , double commissionRate) {

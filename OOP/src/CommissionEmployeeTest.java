@@ -29,17 +29,36 @@ public class CommissionEmployeeTest {
                 0.6
                 );
 
+        BasePlusCommissionEmployee bpEmp = new BasePlusCommissionEmployee("Steve",
+                "Rogers",
+                "777-88",
+                9875,
+                0.5,
+                76000);
+
         System.out.println("Emp Info obtained by get methods");
         System.out.printf("%n%s %s%n", "First name is: ", employee.getFirstName());
+        System.out.printf("%n%s %s%n", "BP First name is: ", bpEmp.getFirstName());
+
         System.out.printf("%n%s %s%n", "Last name is: ", employee.getLastName());
+        System.out.printf("%n%s %s%n", "BP Last name is: ", bpEmp.getLastName());
+
         System.out.printf("%n%s %s%n", "SSN is: ", employee.getSocialNumber());
+        System.out.printf("%n%s %s%n", "BP SSN is: ", bpEmp.getSocialNumber());
+
         System.out.printf("%n%s %.2f%n", "gross sales is: ", employee.getGrossSales());
+        System.out.printf("%n%s %.2f%n", "BP gross sales is: ", bpEmp.getGrossSales());
+
         System.out.printf("%n%s %.2f%n", "commission rate is: ", employee.getCommissionRate());
+        System.out.printf("%n%s %.2f%n", "BP commission rate is: ", bpEmp.getCommissionRate());
 
         employee.setCommissionRate(.1);
+        bpEmp.setCommissionRate(.7);
         employee.setGrossSales(5000);
+        bpEmp.setGrossSales(10000);
 
         System.out.printf("%n%s:%n%n%s%n", "updated emp... ", employee);
+        System.out.printf("%n%s:%n%n%s%n", "BP updated emp... ", bpEmp);
 
     }
 }

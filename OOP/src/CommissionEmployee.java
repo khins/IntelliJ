@@ -15,7 +15,7 @@ public class CommissionEmployee extends Object {
             throw new IllegalArgumentException("gross must be >=0.0");
         }
 
-        if (commissionRate <= 0.0 || commissionRate > = 1.0){
+        if (commissionRate <= 0.0 || commissionRate >= 1.0){
             throw new IllegalArgumentException("rate between 0 and 1");
         }
 
@@ -47,7 +47,7 @@ public class CommissionEmployee extends Object {
     }
 
     public  void setCommissionRate(double commissionRate){
-        if (commissionRate <= 0.0 || commissionRate > = 1.0){
+        if (commissionRate <= 0.0 || commissionRate >= 1.0){
             throw new IllegalArgumentException("rate between 0 and 1");
         }
 
@@ -58,7 +58,20 @@ public class CommissionEmployee extends Object {
         return this.commissionRate;
     }
 
+    public  double getGrossSales() {
+        return  this.grossSales;
+    }
+
     public double earnings() {
         return  commissionRate * grossSales;
+    }
+
+    @Override // overrides the super class
+    public String toString() {
+        return String.format("%s: %s %s%n%s: %s%n%s: %.2f%n%s: %.2f",
+                "commission employee", firstName, lastName,
+                "ssn: ", socialNumber,
+                "gross sales: ", grossSales,
+                "com rate: ", commissionRate);
     }
 }

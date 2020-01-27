@@ -74,4 +74,9 @@ public class CommissionEmployee extends Employee {
                 ", super=" + super.toString() +
                 '}';
     }
+
+    @Override
+    public double getPaymentAmount() {
+        return 0;
+    }
 }

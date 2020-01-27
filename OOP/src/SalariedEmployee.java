@@ -1,6 +1,10 @@
 /*
 Concrete Subclass SalariedEmployee
 https://learning.oreilly.com/videos/java-8-fundamentals/9780133489354/9780133489354-JFUN_lesson10_05
+Modifying Class SalariedEmployee for Use in the Payable Hierarchy
+video https://learning.oreilly.com/videos/java-8-fundamentals/9780133489354/9780133489354-JFUN_lesson10_15
+Using Interface Payable to Process Invoices and Employees Polymorphically
+video https://learning.oreilly.com/videos/java-8-fundamentals/9780133489354/9780133489354-JFUN_lesson10_16
 */
 public class SalariedEmployee extends Employee {
     private double weeklySalary;
@@ -33,5 +37,10 @@ public class SalariedEmployee extends Employee {
 
     public void setWeeklySalary(double weeklySalary) {
         this.weeklySalary = weeklySalary;
+    }
+
+    @Override
+    public double getPaymentAmount() {
+        return getWeeklySalary();
     }
 }

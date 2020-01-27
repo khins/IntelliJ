@@ -1,8 +1,10 @@
 /*
  Abstract Superclass Employee
  video https://learning.oreilly.com/videos/java-8-fundamentals/9780133489354/9780133489354-JFUN_lesson10_04
+ Modifying Class Employee to Implement Interface Payable
+ video https://learning.oreilly.com/videos/java-8-fundamentals/9780133489354/9780133489354-JFUN_lesson10_14
 */
-public abstract class Employee {
+public abstract class Employee implements Payable {
     private final String firstName;
     private final String lastName;
     private final String socialSecurityNumber;

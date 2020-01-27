@@ -3,9 +3,8 @@
 public class BasePlusCommissionEmployee extends CommissionEmployee {
     private  double baseSalary;
 
-    public BasePlusCommissionEmployee(String firstName, String lastName, String socialNumber, double grossSales, double commissionRate, double baseSalary) {
-        super(firstName, lastName, socialNumber, grossSales, commissionRate);
-
+    public BasePlusCommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales, double commissionRate, double baseSalary) {
+        super(firstName, lastName, socialSecurityNumber,  grossSales, commissionRate);
         if (baseSalary < 0.0){
             throw  new IllegalArgumentException("base must be >= 0.0");
         }
@@ -32,6 +31,9 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
 
     @Override
     public String toString() {
-        return String.format("%s: %s%n%s: %.2f", "base salaried", super.toString(), "base sal", getBaseSalary());
+        return "BasePlusCommissionEmployee{" +
+                "baseSalary=" + getBaseSalary() +
+                "super=" + super.toString() +
+                '}';
     }
 }

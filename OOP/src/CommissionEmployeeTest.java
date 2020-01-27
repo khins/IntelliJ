@@ -43,8 +43,8 @@ public class CommissionEmployeeTest {
         System.out.printf("%n%s %s%n", "Last name is: ", employee.getLastName());
         System.out.printf("%n%s %s%n", "BP Last name is: ", bpEmp.getLastName());
 
-        System.out.printf("%n%s %s%n", "SSN is: ", employee.getSocialNumber());
-        System.out.printf("%n%s %s%n", "BP SSN is: ", bpEmp.getSocialNumber());
+        System.out.printf("%n%s %s%n", "SSN is: ", employee.getSocialSecurityNumber());
+        System.out.printf("%n%s %s%n", "BP SSN is: ", bpEmp.getSocialSecurityNumber());
 
         System.out.printf("%n%s %.2f%n", "gross sales is: ", employee.getGrossSales());
         System.out.printf("%n%s %.2f%n", "BP gross sales is: ", bpEmp.getGrossSales());

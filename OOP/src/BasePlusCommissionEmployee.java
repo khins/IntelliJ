@@ -30,6 +30,21 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String getFirstName() {
+        return super.getFirstName();
+    }
+
+    @Override
+    public double getCommissionRate() {
+        return super.getCommissionRate();
+    }
+
+    @Override
     public String toString() {
         return "BasePlusCommissionEmployee{" +
                 "baseSalary=" + getBaseSalary() +

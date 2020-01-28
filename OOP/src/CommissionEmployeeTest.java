@@ -53,6 +53,7 @@ public class CommissionEmployeeTest {
         System.out.printf("%n%s %.2f%n", "BP commission rate is: ", bpEmp.getCommissionRate());
 
         employee.setCommissionRate(.1);
+        employee.setCommissionRate(.1);
         bpEmp.setCommissionRate(.7);
         employee.setGrossSales(5000);
         bpEmp.setGrossSales(10000);

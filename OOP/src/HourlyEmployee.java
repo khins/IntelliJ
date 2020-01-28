@@ -22,23 +22,23 @@ public class HourlyEmployee extends Employee {
         this.hours = hours;
     }
 
-    public double getWage() {
-        return wage;
-    }
-
     public double getHours() {
         return hours;
+    }
+
+    public double getWage() {
+        return wage;
     }
 
     public HourlyEmployee(String firstName, String lastName, String socialSecurityNumber, double wage, double hours) {
         super(firstName, lastName, socialSecurityNumber);
 
-        if (wage < 0.0) {
-            throw new IllegalArgumentException("Hourly wage must be >= 0.0");
-        }
-
         if ((hours < 0.0 || hours > 168)) {
             throw new IllegalArgumentException("Hours must be between 0.0 and 168");
+        }
+
+        if (wage < 0.0) {
+            throw new IllegalArgumentException("Hourly wage must be >= 0.0");
         }
 
         this.wage = wage;

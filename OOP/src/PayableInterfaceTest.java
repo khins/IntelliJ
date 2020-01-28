@@ -17,6 +17,5 @@ public class PayableInterfaceTest {
             System.out.printf("%n%s %n%s: $%,.2f%n", currentPayable.toString(),
                     "payment due", currentPayable.getPaymentAmount());
         }
-
     }
 }

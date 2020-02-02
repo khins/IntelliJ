@@ -11,7 +11,7 @@ public class DatabaseConnectionManager {
 //    private final Properties properties;
 
     public DatabaseConnectionManager(String host, String databaseName, String userName, String password) {
-        this.url = "jdbc:sqlite:C:\\Users\\kevin\\Documents\\Learning Library\\Java\\testDb.db";
+        this.url = "jdbc:sqlite:C:\\Users\\kevin\\Documents\\Learning Library\\Java\\testDb_C.db";
 //        this.properties = new Properties();
 //        this.properties.setProperty("user", userName);
 //        this.properties.setProperty("password", password);

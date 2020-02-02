@@ -10,11 +10,21 @@ public class JDBCExecutor {
         DatabaseConnectionManager dcm = new DatabaseConnectionManager("test", "test","test","ters");
         try {
             Connection connection = dcm.getConnection();
+            CustomerDAO customerDAO = new CustomerDAO(connection);
+            Customer customer = customerDAO.findById(1000);
+            System.out.println(customer.getFirstName() + " "+ customer.getLastName());
+//            Customer customer = new Customer();
+//            customer.setFirstName("Willow");
+//            customer.setLastName("Ufgood");
+//            customerDAO.create(customer);
+
+/* Sample select against the Sqlite Db
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("Select count(*) from customer");
             while (resultSet.next()) {
                 System.out.println(resultSet.getInt(1));
             }
+*/
         } catch (SQLException e) {
             e.printStackTrace();
         }

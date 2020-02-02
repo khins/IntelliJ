@@ -13,6 +13,11 @@ public class JDBCExecutor {
             CustomerDAO customerDAO = new CustomerDAO(connection);
             Customer customer = customerDAO.findById(1000);
             System.out.println(customer.getFirstName() + " "+ customer.getLastName());
+            customer.setLastName(customer.getLastName() + "ly");
+            customer.setFirstName(customer.getFirstName() + "ia");
+            customerDAO.update(customer);
+            System.out.println(customer.getFirstName() + " "+ customer.getLastName());
+
 //            Customer customer = new Customer();
 //            customer.setFirstName("Willow");
 //            customer.setLastName("Ufgood");

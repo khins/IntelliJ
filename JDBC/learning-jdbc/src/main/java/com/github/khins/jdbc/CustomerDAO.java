@@ -25,6 +25,8 @@ public class CustomerDAO extends DataAccessObject<Customer> {
             "from customer2 c\n" +
             "where c.customer_id = ?;";
 
+    private static final String UPDATE = "update Customer set first_name = ?, last_name = ? where customer_id = ?";
+
     public CustomerDAO(Connection connection) {
         super(connection);
     }
@@ -55,7 +57,20 @@ public class CustomerDAO extends DataAccessObject<Customer> {
 
     @Override
     public Customer update(Customer dto) {
-        return null;
+        Customer customer = null;
+        try (PreparedStatement preparedStatement = this.connection.prepareStatement(UPDATE);){
+            preparedStatement.setString(1, dto.getFirstName());
+            preparedStatement.setString(2, dto.getLastName());
+            preparedStatement.setLong(3, dto.getId());
+            customer = this.findById(dto.getId());
+            preparedStatement.execute();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        return  customer;
     }
 
     @Override

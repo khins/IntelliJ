@@ -11,7 +11,18 @@ import java.util.List;
 // https://www.lynda.com/Java-tutorials/Creating-data/779748/5033996-4.html?autoplay=true
 // Learning JDBC
 public class CustomerDAO extends DataAccessObject<Customer> {
-    private static final String INSERT = "INSERT INTO Customer (first_name, last_name) VALUES (?,?)";
+    private static final String INSERT = "insert into customer2 (\n" +
+            "    customer_id,\n" +
+            "    first_name,\n" +
+            "    last_name,\n" +
+            "    zipcode)\n" +
+            "values (\n" +
+            "    ?,\n" +
+            "    ?,\n" +
+            "    ?,\n" +
+            "    65704)\n" +
+            ";";
+
     private  static final String GET_ONE = "select\n" +
             "    c.address,\n" +
             "    c.city,\n" +
@@ -25,7 +36,8 @@ public class CustomerDAO extends DataAccessObject<Customer> {
             "from customer2 c\n" +
             "where c.customer_id = ?;";
 
-    private static final String UPDATE = "update Customer set first_name = ?, last_name = ? where customer_id = ?";
+    private static final String UPDATE = "update customer2 set first_name = ?, last_name = ? where customer_id = ?";
+    private static final String DELETE = "delete from customer2 where customer_id = ?";
 
     public CustomerDAO(Connection connection) {
         super(connection);
@@ -62,10 +74,8 @@ public class CustomerDAO extends DataAccessObject<Customer> {
             preparedStatement.setString(1, dto.getFirstName());
             preparedStatement.setString(2, dto.getLastName());
             preparedStatement.setLong(3, dto.getId());
-            customer = this.findById(dto.getId());
             preparedStatement.execute();
-            preparedStatement.close();
-            connection.close();
+            customer = this.findById(dto.getId());
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
@@ -76,11 +86,12 @@ public class CustomerDAO extends DataAccessObject<Customer> {
     @Override
     public Customer create(Customer dto) {
         try (PreparedStatement preparedStatement = this.connection.prepareStatement(INSERT);) {
-            preparedStatement.setString(1, dto.getFirstName());
-            preparedStatement.setString(2, dto.getLastName());
+            preparedStatement.setLong(1, dto.getId());
+            preparedStatement.setString(2, dto.getFirstName());
+            preparedStatement.setString(3, dto.getLastName());
             preparedStatement.execute();
             preparedStatement.close();
-            connection.close();
+//            connection.close();
             return  null;
         } catch (SQLException e){
             e.printStackTrace();
@@ -90,6 +101,13 @@ public class CustomerDAO extends DataAccessObject<Customer> {
 
     @Override
     public void delete(long id) {
+        try (PreparedStatement preparedStatement = this.connection.prepareStatement(DELETE);){
+            preparedStatement.setLong(1, id);
+            preparedStatement.execute();
 
+        } catch (SQLException e){
+            e.printStackTrace();
+            throw  new RuntimeException(e);
+        }
     }
 }

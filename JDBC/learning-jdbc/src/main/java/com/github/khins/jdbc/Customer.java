@@ -32,5 +32,12 @@ public class Customer implements DataTransferObject {
         return lastName;
     }
 
-
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }
